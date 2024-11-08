@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Colchões AIAM</title>
+
+    <style>
+        .btn-warning {
+            background-color: #ff8c00 !important;
+            border-color: #ff8c00 !important;
+            color: #ffffff;
+        }
+
+
+        
+
+    /* Garantir que o conteúdo esteja centralizado verticalmente na imagem */
+    .col-12 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .navbar {
+            background-color: rgb(20, 230, 230);
+            padding: 0;
+        }
+
+        .navbar-nav {
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            margin: 0;
+            position: relative;
+            border-right: 2px solid rgb(59, 59, 59);
+        }
+
+        .nav-item:last-child {
+            border-right: 3px solid rgb(59, 59, 59);
+        }
+
+        .nav-link {
+            color: white;
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .navbar-button:hover {
+            background-color: rgb(144, 96, 27);
+        }
+
+        .navbar-nav .nav-item:not(.dropdown) .nav-link:hover {
+            background-color: #ff8c00;
+            color: white;
+            border-color: #ff8c00;
+        }
+
+
+
+
+
+
+        .image-grid .col-md-3 {
+            margin-bottom: 98px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 0px solid #ddd;
+        }
+
+        .image-grid .btn-overlay {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: black;
+            border: 2px solid #ffffff;
+            padding: 10px 49px;
+            border-radius: 0px;
+        }
+
+        .image-grid .image-container {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border: 2px solid #ddd;
+            border-radius: 0px;
+            margin: 10px;
+            position: relative;
+        }
+
+        .image-grid img {
+            width: 98%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5%;
+        }
+
+        .carousel-control-prev {
+            left: 10px;
+        }
+
+        .carousel-control-next {
+            right: 10px;
+        }
+
+        .align-left {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+
+        #imagemLaranja {
+            width: 400px;
+            height: auto;
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+
+
+        .centered-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .centered-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Botão verde da imagem */
+        .btn-green {
+            position: absolute;
+             right: 1116px;
+            transform: translateX(-50%);
+            background-color: rgba(2, 87, 21, 0.966);
+            color: white;
+            width: 150px;
+            height: 40px;
+            border: none;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            text-align: center;
+            
+        }
+           
+
+            
+        /*  Style do "últimas do blog e linha embaixo dela (:*/
+        .centralizar2 {
+            text-align: center;
+        }
+
+        .underline {
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: green;
+            margin: 10px auto 0 auto;
+        }
+
+        .card-img-top {
+            height: 220px;
+            /* Ajuste a altura da imagem */
+            object-fit: cover;
+            /* Faz a imagem se ajustar ao tamanho do card */
+        }
+
+        .card-body {
+            padding: 0;
+            /* Remove padding da body */
+        }
+
+        .post-date {
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+            margin-top: 0;
+            /* Remove margem superior para alinhar o texto */
+
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+            /* Tamanho maior para o título */
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            /* Adiciona espaçamento nas laterais */
+        }
+
+        .post-description {
+            font-size: 1rem;
+            margin-top: 10px;
+            color: #666666;
+            /* Cor cinza para a descrição */
+            padding: 0 10px 10px 10px;
+            /* Adiciona espaçamento nas laterais e no final */
+        }
+
+        .card {
+            border: none;
+            /* Remove as bordas dos cards */
+        }
+
+        .blog-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            /* Tamanho do título da seção */
+            font-weight: bold;
+        }
+
+        .blog-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: #046936;
+            /* Cor verde para a linha abaixo do título */
+            margin: 10px auto 0;
+        }
+
+        /*Footer*/
+
+        footer {
+            background-color: #000;
+            /* Fundo do footer */
+            color: #6c757d;
+            /* Tom de cinza para o texto */
+            padding: 20px;
+        }
+
+
+        custom-btn {
+            border-radius: 0px;
+            background-color: #046936;
+        }
+
+        #carrosselImagensUnico .carousel-control-prev,
+        #carrosselImagensUnico .carousel-control-next {
+
+            border-radius: 50%;
+            /* Torna os botões redondos */
+            width: 50px;
+            /* Largura do botão */
+            height: 50px;
+            /* Altura do botão */
+            top: 50%;
+            /* Centraliza verticalmente */
+            transform: translateY(-50%);
+            /* Ajusta a centralização vertical */
+            z-index: 1;
+            /* Garante que os botões fiquem acima das imagens */
+        }
+
+        /* Estilo para o ícone de navegação */
+        #carrosselImagensUnico .carousel-control-prev-icon,
+        #carrosselImagensUnico .carousel-control-next-icon {
+            filter: invert(100%);
+            /* Inverte a cor para branco */
+            width: 20px;
+            /* Tamanho do ícone */
+            height: 20px;
+            /* Tamanho do ícone */
+        }
+
+        /* Posição customizada para o botão anterior */
+        #carrosselImagensUnico .carousel-control-prev {
+            left: -45px;
+            /* Ajusta a posição horizontal */
+        }
+
+        /* Posição customizada para o botão próximo */
+        #carrosselImagensUnico .carousel-control-next {
+            right: -65px;
+            /* Ajusta a posição horizontal */
+        }
+
+
+        #carrosselImagensUnico .carousel-indicators {
+            position: absolute;
+            bottom: -18px;
+            /* Altere esta linha para ajustar a distância vertical */
+            left: 50%;
+            transform: translateX(-50%);
+
+
+        }
+
+        #carrosselImagensUnico .carousel-control-prev,
+        #carrosselImagensUnico .carousel-control-next {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5%;
+            /* Ajuste a largura se necessário */
+        }
+
+        /* Indicador padrão do carrossel */
+        #carrosselImagensUnico .carousel-indicators button {
+            width: 10px;
+            /* Largura padrão */
+            height: 10px;
+            /* Altura padrão */
+            background-color: rgba(0, 0, 0, 0.25);
+            /* Cor de fundo padrão */
+            border: none;
+            /* Remover borda */
+            border-radius: 50%;
+            /* Mantém a forma circular */
+           
+        }
+
+        /* Indicador ativo do carrossel */
+        #carrosselImagensUnico .carousel-indicators .active {
+            background-color: #000;
+            /* Cor do indicador ativo */
+            width: 30px;
+            height: 10px;
+            
+        }
+
+
+        
+
+        
+.title-with-line {
+        position: relative;
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .title-with-line::after {
+        content: '';
+        display: block;
+        width: 80px; /* Largura do traço */
+        height: 4px; /* Altura do traço */
+        background-color: #046936; /* Cor verde do traço */
+        margin: 10px auto 0;
+    }
+
+    #carrosselImagensUnico .carousel-indicators {
+
+        position: relative;
+        top: 325px;
+        left: 255px;
+        
+    }
+
+    #carrosselImagens1 .carousel-control-prev-icon {
+        background-color: transparent; /* Cor azul para os botões */
+            border-radius: 50%;
+            padding: 10px;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(106%) contrast(101%);
+            position: absolute;
+            right: 90px;
+    }
+        
+    
+    #carrosselImagens1 .carousel-control-next-icon {
+            background-color: transparent; /* Cor azul para os botões */
+            border-radius: 50%;
+            padding: 10px;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(106%) contrast(101%);
+            position: absolute;
+            left: 90px;
+        }
+
+        /* Alterando a cor dos indicadores */
+        #carrosselImagens1 .carousel-indicators [data-bs-target] {
+            background-color: #363636 ;
+           
+            
+        }
+
+        /* Quando o indicador está ativo */
+        #carrosselImagens1 .carousel-indicators .active {
+            background-color: #000 ;
+           
+        }
+
+
+        #carrosselImagens2 .carousel-control-prev-icon {
+        background-color: transparent; 
+            border-radius: 50%;
+            padding: 10px;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(106%) contrast(101%);
+            position: absolute;
+            right: 90px;
+    }
+        
+    
+    #carrosselImagens2 .carousel-control-next-icon {
+            background-color: transparent; /* Cor azul para os botões */
+            border-radius: 50%;
+            padding: 10px;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(93deg) brightness(106%) contrast(101%);
+            position: absolute;
+            left: 90px;
+        }
+
+        /* Alterando a cor dos indicadores */
+        #carrosselImagens2 .carousel-indicators [data-bs-target] {
+            background-color: #363636 ;
+           
+            
+        }
+
+        /* Quando o indicador está ativo */
+        #carrosselImagens2 .carousel-indicators .active {
+            background-color: #000 /* Cor vermelha para o indicador ativo */
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+    <!-- Aqui é a header -->
+    <header class="container mt-2  mb-3">
+        <div class="row align-items-center">
+            <div class="col-md-4 d-flex justify-content-start">
+                <img src="Imagns/header/Logo AIAM.png" class="img-fluid" alt="Logo AIAM">
+            </div>
+            <div class="col-md-4 d-flex justify-content-center">
+                <form class="d-flex w-100" action="#" method="GET">
+                    <input class="form-control me-2" type="text" name="query" placeholder="O que você está procurando?">
+                    <button style="background-color: #0d6f43; border: none;" class="btn btn-primary" type="submit">
+                        <i class="fas fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+                <button class="btn btn-outline-success" type="submit"
+                    style="background-image: url('Imagns/header/sac.png'); background-size: cover; width: 100px; height: 50px; border: none;">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!--Aqui é a navbar-->
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(29, 26, 26);">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-around position-relative" id="navbarSupportedContent" style="right: 159px;">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-t align-items-center" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(59, 59, 59);">
+                            <i class="fas fa-bars"></i>
+                            <span class="ms-3">PRODUTOS</span>
+                            <i class="fas fa-chevron-down ms-4"></i>
+                        </a>
+                        <ul class="dropdown-menu bg-dark">
+                            <li><a class="dropdown-item" href="#" style="color: gray;">Action</a></li>
+                            <li><a class="dropdown-item" href="#" style="color: gray;">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" style="color: gray">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" style="background-color: #ff8c00;">
+                        <a class="nav-link" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">REPRESENTANTES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">QUEM SOMOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BLOG</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Carrossel principal-->
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active" style="background: #046936 url(Imagns/carrossel/teste.png) center center; background-size: cover;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 py-lg-5 text-left">
+                            <div class="text-white py-5 my-5">
+                                <h1>Qualidade Superior, Preço Ímbatível!</h1>
+                                <p class="py-4 text-white-50">Experimente o conforto excepcional da Linha BEDS Super Premium.</p>
+                                <a class="btn btn-warning rounded-0" href="https://youtu.be/3c3XJ_HMB0A?si=ZZfPy4pF-Qwt56ry" target="_blank" role="button">CONHEÇA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Slide 2 -->
+            <div class="carousel-item" style="background: #046936 url(Imagns/carrossel/teste.png) center center; background-size: cover;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 py-lg-5 text-left">
+                            <div class="text-white py-5 my-5">
+                                <h1>Conforto Inigualável, Estilo Moderno!</h1>
+                                <p class="py-4 text-white-50">Descubra a elegância da Linha BEDS Premium.</p>
+                                <a class="btn btn-warning rounded-0" role="button">SAIBA MAIS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Slide 3 -->
+            <div class="carousel-item" style="background: #046936 url(Imagns/carrossel/teste.png) center center; background-size: cover;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 py-lg-5 text-left">
+                            <div class="text-white py-5 my-5">
+                                <h1>Durabilidade e Conforto em Cada Detalhe!</h1>
+                                <p class="py-4 text-white-50">Experimente a resistência da Linha BEDS Classic.</p>
+                                <a class="btn btn-warning rounded-0" role="button">CONFIRA</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Controles do Carrossel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    
+
+    <!-- Fotos -->
+    
+    <div class="container mt-5 image-grid">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="image-container">
+                    <img src="Imagns/imgembcarro/WhatsApp Image 2024-09-02 at 17.11.45.jpeg" alt="Imagem 1">
+                    <a href="#" class="btn btn-overlay">Colchões</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="image-container">
+                    <img src="Imagns/imgembcarro/colchao.jfif" alt="Imagem 2">
+                    <a href="#" class="btn btn-overlay">Camas</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="image-container">
+                    <img src="Imagns/imgembcarro/WhatsApp Image 2024-09-02 at 17.11.45.jpeg" alt="Imagem 3">
+                    <a href="#" class="btn btn-overlay">Sofá/Poltronas</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="image-container">
+                    <img src="Imagns/imgembcarro/colchao.jfif" alt="Imagem 4">
+                    <a href="#" class="btn btn-overlay">Cabeceiras</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Imagem Laranja na esquerda -->
+    <!-- Imagem Laranja na esquerda -->
+    <div class="container">
+        <div class="row">
+            <!-- Coluna Imagem Laranja -->
+            <div class="col-md-4 m align-content-lg-start " style="background:url('Imagns/imgembcarro/colchaolaranja.jpg') no-repeat center center;background-size: cover; max-width: 3200px;; max-height: 2000px; width: 300px; height: 400px;">
+                <div class="container pt-5">
+                    <div class="row align-items-center">
+                        <div class=" mt-4 text-center">
+                            <div class="text-white py-lg-5 py-5 my-5 mx-5">
+                                <h1>AIAM</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Coluna Carrossel -->
+            <div class="container col-md-7 " style="position: relative; left: 150px; top: -41px;">
+                <!-- Carrossel 1 -->
+                <div id="carrosselImagens1" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicadores para o carrossel 1 -->
+                    <div class="carousel-indicators custom-carousel-indicators" style="position: relative; top: 320px;">
+                        <button type="button" data-bs-target="#carrosselImagens1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carrosselImagens1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carrosselImagens1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        
+                    </div>
+            
+                    <!-- Slides do carrossel 1 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/maya.png" class="d-block w-100" alt="Imagem 1">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/camomile.png" class="d-block w-100" alt="Imagem 2">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/alecrim.png" class="d-block w-100" alt="Imagem 3">
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/maya.png" class="d-block w-100" alt="Imagem 4">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/camomile.png" class="d-block w-100" alt="Imagem 5">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/alecrim.png" class="d-block w-100" alt="Imagem 6">
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/maya.png" class="d-block w-100" alt="Imagem 7">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/camomile.png" class="d-block w-100" alt="Imagem 8">
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="Imagns/minicarrossel/alecrim.png" class="d-block w-100" alt="Imagem 9">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Controles do carrossel 1 -->
+                    <button class="carousel-control-prev custom-carousel-control-prev" type="button" data-bs-target="#carrosselImagens1" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-carousel-control-next" type="button" data-bs-target="#carrosselImagens1" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!--imagem do botão saiba mais-->
+
+
+    <!-- Imagem Abaixo do Segundo Carrossel com Botão Dentro -->
+    <div class="container mx-3 ">
+        <div class="row">
+            <!-- Coluna com Imagem, Texto e Botão -->
+            <div class="col-12 m-3 me-5" style="background: url('Imagns/imagemcolchao/experienciasono-Photoroom.png') no-repeat center center; background-size: cover; height: 557px; max-width: 4500px;width:1800px; right: 259px; position: relative;">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="text-center col-md-5">
+                            <h1 class="title-with-line pe-3 ">A Experiência Suprema de Sono</h1>
+                             <p class="text-black-50 m-2 col-md-12">Descubra o conforto incomparável e a tecnologia de ponta dos Colchões
+                                AIAM. Nossos produtos são projetados para proporcionar noites de sono
+                                perfeitas e revigorantes.</p>
+                                <a href="https://youtu.be/erRhkWqE8es?si=uvsj7L7EfS0QOYFT" target="_blank" class="btn btn-green m-3  ">SAIBA MAIS</a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <div class="container col-md-7 ">
+        <!-- Carrossel 1 -->
+        <div id="carrosselImagens2" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicadores para o carrossel 1 -->
+            <div class="carousel-indicators custom-carousel-indicators" style="position: relative; top: 320px;">
+                <button type="button" data-bs-target="#carrosselImagens2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carrosselImagens2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carrosselImagens2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                
+            </div>
+    
+            <!-- Slides do carrossel 1 -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/maya.png" class="d-block w-100" alt="Imagem 1">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/camomile.png" class="d-block w-100" alt="Imagem 2">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/alecrim.png" class="d-block w-100" alt="Imagem 3">
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/maya.png" class="d-block w-100" alt="Imagem 4">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/camomile.png" class="d-block w-100" alt="Imagem 5">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/alecrim.png" class="d-block w-100" alt="Imagem 6">
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/maya.png" class="d-block w-100" alt="Imagem 7">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/camomile.png" class="d-block w-100" alt="Imagem 8">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="Imagns/minicarrossel/alecrim.png" class="d-block w-100" alt="Imagem 9">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Controles do carrossel 1 -->
+            <button class="carousel-control-prev custom-carousel-control-prev" type="button" data-bs-target="#carrosselImagens2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-carousel-control-next" type="button" data-bs-target="#carrosselImagens2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+            <!-- Coluna Imagem Laranja -->
+            <div class=" px-5 mx-5 m-4  " style="background:url('Imagns/imgembcarro/colchaolaranja.jpg') no-repeat center center;background-size: cover; max-width: 3200px;; max-height: 2000px; width: 300px; height: 400px; position: relative; right: -180px;">
+                <div class="container pt-5">
+                    <div class="row align-items-center">
+                        <div class=" mt-4  text-center">
+                            <div class="text-white py-lg-5 py-5 my-5 mx-5">
+                                <h1>AIAM</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<br>
+    <!-- Imagem Grande-->
+    <div>
+        <img src="Imagns/imagemcolchao/conjuntofotos.png" alt="" class="centered-image">
+    </div>
+
+
+    <!--Parte do h1-->
+    <h1 class="centralizar2 mt-4"> Últimas do Blog</h1>
+    <div class="underline"></div>
+
+
+
+    <!-- Container principal para os cards -->
+    <div class="container mt-3">
+        <div class="row">
+
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="Imagns/noticiasdoblog/muiedormindo.png" class="card-img-top" alt="Imagem 1">
+                    <div class="card-body">
+                        <p class="post-date mt-3"><i><img src="Imagns/noticiasdoblog/iconecalend.png"
+                                    style="height: 28px; " alt=""></i> 04/10/2023</p>
+                        <h5 class="post-title">7 Segredos para ter um Sono de Qualidade</h5>
+                        <p class="post-description">Descubra dicas e truques essenciais para melhorar a
+                            qualidade do seu sono. Neste artigo, exploramos hábitos...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="Imagns/noticiasdoblog/Camaesquerda.png" class="card-img-top" alt="Imagem 2">
+                    <div class="card-body">
+                        <p class="post-date mt-3"><i><img src="Imagns/noticiasdoblog/iconecalend.png"
+                                    style="height: 28px;" alt=""></i> 14/10/2023</p>
+                        <h5 class="post-title">Inovação Tecnológica nos Colchões: O Futuro do Conforto</h5>
+                        <p class="post-description">Dê uma olhada nas mais recentes inovações tecnológicas em
+                            colchões que estão transformando a forma como...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="Imagns/noticiasdoblog/camadireita.png" class="card-img-top" alt="Imagem 3">
+                    <div class="card-body">
+                        <p class="post-date mt-3"><i><img src="Imagns/noticiasdoblog/iconecalend.png"
+                                    style="height: 28px;" alt=""></i> 24/10/2023</p>
+                        <h5 class="post-title">Escolhendo o Colchão Perfeito: Guia de Compra</h5>
+                        <p class="post-description">Com tantas opções disponíveis, encontrar o colchão perfeito
+                            pode ser um desafio. Este guia de compra abrangente irá...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer -->
+    <footer class="  py-5 mt-5" style="background-color: rgb(25, 25, 25);">
+        <div class="container">
+            <div class="row">
+                <!-- Coluna de Contato -->
+                <div class="col-md-4 mb-4">
+                    <img src="Imagns/footer/aiam.png" alt="Logo Colchões AIAM" class="img-fluid mb-3">
+                    <p><span style="color: orange;">Endereço:</span> Avenida Liberdade, 3859 (Galpão B2, E2, E3
+                        e F3), Centro - Bayeux/PB - CEP: 58306-001
+                    </p>
+
+                    <p><span style="color: #ff8c00;">Atendimento:</span> De Seg. à Sex. das 08h às 16h</p>
+
+                    <p><span style="color: #ff8c00;">Telefone:</span> (83) 99120-5152</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="col-md-2 mb-2">
+                    <h5 style=" color: #ffffff;">Produtos</h5>
+
+                    <ul class="d-inline ">
+                        <li style="color: #ff8c00;">Colchões AIAM</li>
+                    </ul>
+
+                    <ul class="list-unstyled d-inline-block">
+                        <li>Molas Ensacadas</li>
+                        <li>Espuma</a></li>
+                    </ul>
+
+                    <ul class="d-inline">
+                        <li style="color: #ff8c00;">BEDS</li>
+                    </ul>
+
+                    <ul class="list-unstyled d-inline">
+                        <li>Linha Itália</a></li>
+                        <li>Base Baú</a></li>
+                        <li>Sofá/Poltronas</a></li>
+                        <li>Cabeceira</a></li>
+                    </ul>
+
+                </div>
+
+
+                <div class="col-md-3 mb-">
+                    <h5 style="color: #ffffff;">Institucional</h5>
+                    <ul class="list-unstyled">
+                        <li>Produtos</a></li>
+                        <li>Representantes</a></li>
+                        <li>Quem Somos</a></li>
+                        <li>Blog</a></li>
+                        <li>SAC</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna de Newsletter -->
+                <div class="col-md-3">
+                    <h5 style="color: #ffffff;">Cadastre-se em nossa Newsletter</h5>
+                    <p style="color: #6c757d;">Receba conteúdo exclusivo diretamente na sua caixa de entrada.
+                    </p>
+                    <form action="#" method="POST">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="E-mail" required
+                                style="background-color: #363636; border: none; border-radius: 0%; color: rgb(178, 178, 178); ">
+                            <button class="btn btn-success" type="submit"
+                                style="border-radius: 0px; width: 120px; background-color: #046936; color: #ffffff; border: none;">ASSINE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center bg-secondary py-3 mt-4">
+            <p class="mb-0">&copy; 2023 Colchões AIAM. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+
+</html>
+
+</body>
+
+</html>
